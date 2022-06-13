@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 public class TestScript {
     private static final String DEFAULT_REG = "reg [NUM_OF_BITS:0]INPUT";
     private static final String DEFAULT_WIRE = "wire [NUM_OF_BITS:0]OUTPUT";
-    private static final String DEFAULT_MODULE = "module MODULE();"; 
+    private static final String DEFAULT_MODULE = "module tb_MODULE();"; 
     private static final String DEFAULT_BEGIN = "initial begin";
     private static final String DEFAULT_END = "end";
-    private static final String DEFAULT_TIME = "50";
+    private static final String DEFAULT_TIME = "10";
     private static StringBuilder builder = new StringBuilder();
 
     public static void main(String[] args) {
@@ -70,7 +70,7 @@ public class TestScript {
 
         for(int i = 0; i < input.length; i++) {
             temp = new String(DEFAULT_REG);
-            temp = temp.replaceAll("NUM_OF_BITS", Integer.toString(inputBit[i]));
+            temp = temp.replaceAll("NUM_OF_BITS", Integer.toString(inputBit[i] - 1));
             temp = temp.replaceAll("INPUT", input[i]);
             builder.append("\t" + temp + ";\n");
         }
@@ -81,7 +81,7 @@ public class TestScript {
 
         for(int i = 0; i < output.length; i++) {
             temp = new String(DEFAULT_WIRE);
-            temp = temp.replaceAll("NUM_OF_BITS", Integer.toString(outputBit[i]));
+            temp = temp.replaceAll("NUM_OF_BITS", Integer.toString(outputBit[i] - 1));
             temp = temp.replaceAll("OUTPUT", output[i]);
             builder.append("\t" + temp + ";\n");
         }
