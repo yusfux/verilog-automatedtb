@@ -1,4 +1,4 @@
-# Verilog-AutomatedTestBench
+# Verilog - Automated Test Bench
 nefret dolu oldugum Vivado Test Bench'lerini otomatiklestirmek icin...
 
 ## Usage
